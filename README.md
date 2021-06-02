@@ -1,2 +1,2 @@
-# redux-app
+# 💬 redux-app
 State management with Redux. 
