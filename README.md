@@ -153,3 +153,7 @@ function reducer(store, action) {
     user: {}
 }
 ```
+
+## Reference
+![image](https://user-images.githubusercontent.com/52897657/120706181-c5e96080-c486-11eb-84b9-308c47ea81d1.png)
+
