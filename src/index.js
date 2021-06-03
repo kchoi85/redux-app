@@ -1,16 +1,21 @@
-// in javascript, functions are like first-class citizen
+import store from "./store";
+import { bugAdded } from "./actions";
+import * as actions from "./actionTypes";
 
-let numbers = [1, 2, 3];
-numbers.map((number) => number * 2);
+// before dispatching an action,
+// subscribe function is called everytime the state of store is changed
+const unsubscribe = store.subscribe(() => {
+  console.log("Store changed", store.getState());
+});
 
-//higher order f(x) as ittakes function as argument
-setTimeout(() => console.log("hello"), 1000);
+store.dispatch(bugAdded("Bug 1"));
+unsubscribe();
 
-let book = {};
-book.title = "...";
-console.log(book);
+store.dispatch({
+  type: actions.BUG_REMOVED,
+  payload: {
+    id: 1,
+  },
+});
 
-// spread operator
-const person = { name: "Dave" };
-const updated = { ...person, name: "Vunu" };
-console.log(updated);
+console.log(store.getState());
